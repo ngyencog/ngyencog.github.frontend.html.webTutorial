@@ -1,0 +1,356 @@
+body {
+	border-top: 5px solid #e56038;
+	background: #ebe8de;
+	font-family: 'Open Sans', sans-serif;
+	color: #333333;
+}
+
+.clear {
+	clear: both;
+}
+a {
+	color: inherit;
+	text-decoration: none;
+}
+p {
+	margin: 5px 0;
+	line-height: 25px;
+}
+
+/*HEADER*/
+header {
+	position: relative;
+	width: auto;
+	max-width: 900px;
+	margin: 0 auto 20px auto; /*top | right | bottom | left*/
+}
+
+header h1 {
+	margin: 35px 0 0 0;
+	color: #e56038;
+	font-family: 'Baumans';
+	font-size: 55px;
+}
+
+header p {
+	font-family: 'Open Sans', sans-serif;
+	font-size: 16px;
+	color: #4A463B;
+	margin-left: 5px;
+}
+/*HEADER*/
+
+
+/*NAVIGATION BAR*/
+nav {
+	position: absolute;
+	margin: 50px 20px;
+	top: 0px;
+	right: 0px;	
+}
+
+nav > ul > li {
+	text-align: center;
+	line-height: 40px;
+	margin-left: 70px;
+	float: left;
+}
+
+
+nav > ul > li > a {
+	cursor: pointer; /*Khi di chuột thì hiển thị hình bàn tay*/
+	text-decoration: none; /* Bỏ các decorate default của css*/
+	display: block; /*Hiển thị dạng block(xuống hàng), hoặc inline(cùng một hàng)*/
+	outline: none; /*Viền bao quanh đối tượng, giúp đối tượng stand out. Pro{green dot thick} */
+	font-family: 'Open Sans', sans-serif;
+	text-transform: uppercase;
+}
+
+nav > ul > li:hover > a {
+	color: #777;
+}
+/*NAVIGATION BAR*/
+
+
+/*SLIDE SHOW*/
+
+.container { /* Chứa slider_content và các hình ảnh*/
+	width: auto;
+	margin: 0 auto;
+	position: relative;
+}
+
+#slider_content { /*Configure cho nội dung - slider_content*/
+	line-height: 25px;
+	font-family: 'Open Sans', sans-serif;
+	opacity: 0.6; /* Độ mờ*/
+	width: 350px;
+	position: absolute;
+	top: 15%;
+	left: 15%;
+	z-index: 11; /*Specifies the stack oder of elements: Thứ tự hiển thị lớp*/
+}
+
+#slider_content {
+	display: block;
+}
+
+
+#slider_content h3 {
+	color: #EBE8DE;
+	font-size: 25px;
+	font-weight: bold;
+	margin-bottom: 10px;
+	background-color: #333333;
+	padding: 10px 15px;
+	border-radius: 15px 0 15px 0;
+	display: inline-block;
+}
+
+#slider_content p {
+	margin: 0 0 30px 0;
+	color: #4a463b;
+	background-color: #ebe8de;
+	padding: 10px 15px;
+	border-radius: 5px;
+}
+
+/*DIV SLIDER IMAGE*/
+
+/* 		<div id="slider">
+	<figure>
+		<img src="images/slide1.jpg" alt="">
+		<img src="images/slide2.jpg" alt="">
+		<img src="images/slide3.jpg" alt="">
+		<img src="images/slide4.jpg" alt="">
+		<img src="images/slide5.jpg" alt="">
+	</figure>
+</div> */
+
+
+div#slider { /*<div id="slider">*/
+	overflow: hidden; /* Phần text sẽ bị hidden nếu nó overfow-tràn khỏi khung */
+}
+
+div#slider figure {
+	position: relative;
+	width: 500%; /* Chiếm diện tích rộng gấp 5 màn hình hiện hành*/
+	margin: 0;
+	left: 0;
+	text-align: left;
+	font-size: 0;
+
+	/*Chuyển động hình ảnh, tự động slide*/
+	animation: 30s slidy infinite; /*infinite= lặp đi lặp lại sau khi kết thúc. slidy= kênh chuyển động*/
+}
+@keyframes slidy {
+	0% {
+		left: 0%; /*Không động đậy*/
+	}
+	20% {
+		left: 0%; /* Cầm cự 20% của time=6s*/
+	}
+
+	21% {
+		left: -100%; /*Figure dịch sang trái (so với điểm xuất phát ban đầu) một khoảng bằng động rộng picture hiện tại (100%) */
+	}
+	40% {
+		left: -100%;
+	}
+
+
+	41% {
+		left: -200%;
+	}
+	60% {
+		left: -200%;
+	}
+
+	61% {
+		left: -300%;
+	}
+	80% {
+		left: -300%;
+	}
+
+	81% {
+		left: -400%;
+	}
+	100% {
+		left: -400%;
+	}
+}
+
+div#slider figure img {
+	width: 20%; /* Chiếm 1/5 của frame figure*/
+	float: left; /* The được xếp liền kề bên trái**/
+}
+/*DIV SLIDER IMAGE*/
+
+
+/*SPACER*/
+#spacer {
+	width: auto;
+	height: 70px;
+	background-color: #e56038;
+	position: relative;
+	font-family: 'Open Sans', sans-serif;
+	color: #fff;
+	font-size: 18px;
+}
+
+#spacer p {
+	margin-top: 22px;
+	width: auto;
+	position: absolute;
+	left: 50%; /* Shift qua phải, chừa bên trái, nằm ngay ở giữa(+ nằm phía bên PHẢI) của parent frame (spacer)*/
+	margin-left: -450px; /*Dịch sang bên tay trái -450px so với vị trí hiện tại*/
+}
+
+#spacer .search {
+	margin-top: 15px;
+	width: auto;
+	position: absolute;
+	right: 50%; /*Shift qua bên trái, chừa trống bên phải, nằm ngay ở giữa*/
+	margin-right: -480px; /*Dịch phải 480px*/
+}
+
+input {
+	font-family: 'Open Sans', sans-serif;
+	font-size: 16px;
+	padding: 7px;
+	outline: 0;
+	border: 0;
+	width: 250px;
+	background: #ebe8de;
+	border-radius: 5px;
+}
+
+input[type=submit], .button {
+	width: auto;
+	padding: 5px 18px;
+	line-height: 25px;
+	text-shadow: none;
+	cursor: pointer;
+	box-shadow: none;
+	background: #333333;
+	color: #fff;
+	border-radius: 5px;
+}
+/*SLIDE SHOW*/
+
+
+/*COLUMN*/
+#three_columns {
+	width: auto;
+	max-width: 900px;
+	margin: 0 auto;
+	padding: 70px 0 45px 0;
+}
+#three_columns article {
+	float: left;
+	max-width: 250px;
+	margin-right: 45px;
+	font-size: 14px;
+}
+#three_columns article img {
+	float: left;
+}
+
+#three_columns article h3 {
+	font-size: 28px;
+	/*font-weight: bold; */
+	margin-left: 75px;
+	margin-bottom: 10px;
+}
+
+#three_columns article p {
+	font-size: 13px;
+	margin-left: 75px;
+	margin-bottom: 10px;
+}
+
+/* Implement by myself
+#separate {
+	margin: 0 auto;
+	max-width: 900px;
+	margin-bottom: 20px;
+}
+
+#separate h3 {
+	margin-bottom: 16px;
+}
+
+
+#four_pictures {
+	max-width: 900px;
+	margin: 0 auto;
+}
+
+#four_pictures article{
+	margin: 0 auto;
+	max-width: 200px;
+	float: left;
+	margin-right: 25px;
+	margin-bottom: 15px;
+}
+
+#four_pictures article img {
+	width: 200px;
+	height: 150px;
+	margin-bottom: 15px;
+} */
+
+
+#four_columns {
+	line-height: 1px solid #D6D0C1;
+	padding-bottom: 10px;
+	clear: both;
+	width: auto;
+	max-width: 900px;
+	margin: 0 auto;
+}
+
+#four_columns h2 {
+	font-size: 20px;
+	border-bottom: 1px solid #D6D0C1;
+	padding: 20px 0;
+	margin-bottom: 20px;
+}
+#four_columns .img-item {
+	float: left;
+	margin-right: 25px;
+}
+
+#four_columns .img-item a {
+	position: relative;
+	display: block;
+}
+
+figcaption {
+	line-height: 25px;
+	font-size: 14px;
+	width: 200px;
+}
+
+figcaption strong {
+	border-bottom: 1px solid #D6D0C1;
+	padding-bottom:  10px;
+	margin: 10px 0;
+	display: block;
+}
+
+.zoomin {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 113px;
+	background: #000 url("../images/zoom.png") center center no-repeat;
+	z-index: 99;
+	opacity: 0;
+}
+
+.zoomin:hover {
+	opacity: 0.5;
+}
